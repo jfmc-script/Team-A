@@ -55,7 +55,7 @@ services.each { servicename,localservice ->
              
             	}
               }
-              string virtualRepoKey=repokeyPrefix
+              String virtualRepoKey=repokeyPrefix
               def remoteRepos = services.collect{key,serviceindividual -> serviceindividual.name}
               virtualRepository(virtualRepoKey) {
                 description "virtual descirption"
