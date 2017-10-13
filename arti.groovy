@@ -34,11 +34,25 @@ services.each { servicename,localservice ->
               def maturity="prod"
               def location="local"
               //packaageTypeUserInput="generic"
-              String repokey=team + "-" + packageTypeUserInput + "-" + maturity + "-" + location
+              String repokeyPrefix = team + "-" + packageTypeUserInput + "-" + maturity + "-"
+              String repokey=repokeyPrefix + location
                 localRepository(/*"random-generic-prod-local"*/repokey) {
                     description "Public Description"
                     notes "Some internal notes"
                     packageType packageTypeUserInput // "maven" | "gradle" | "ivy" | "sbt" | "nuget" | "gems" | "npm" | "bower" | "debian" | "pypi" | "docker" | "vagrant" | "gitlfs" | "yum" | "generic"
                 }
+              services.each { servicename1,remoteservice ->
+                if(remoteservice.name!=localservice.name) {
+                  artifactory(localservice.name)
+                	{
+                       repokey=repokeyPrefix+remoteservice.name
+                       localRepository(/*"random-generic-prod-local"*/repokey) {
+                    	description "Public Description"
+                    	notes "Some internal notes"
+                    	packageType packageTypeUserInput // "maven" | "gradle" | "ivy" | "sbt" | "nuget" | "gems" | "npm" | "bower" | "debian" | "pypi" | "docker" | "vagrant" | "gitlfs" | "yum" | "generic"
+                		}
+                	}
+            	}
+              }
             }
 }
