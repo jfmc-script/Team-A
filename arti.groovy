@@ -32,7 +32,10 @@ def localservice=services["Art-2"]
 //for (localservice in service) {
     artifactory(localservice.name)
             {
-                localRepository("random-generic-prod-local"/*namecreator("prod","local")*/) {
+              maturity="prod"
+              location="local"
+              String repokey=team + "-" + packageTypeUserInput + "-" + maturity + "-" + location
+                localRepository(/*"random-generic-prod-local"*/repokey) {
                     description "Public Description"
                     notes "Some internal notes"
                     packageType packageTypeUserInput // "maven" | "gradle" | "ivy" | "sbt" | "nuget" | "gems" | "npm" | "bower" | "debian" | "pypi" | "docker" | "vagrant" | "gitlfs" | "yum" | "generic"
