@@ -34,8 +34,8 @@ services.each { servicename,localservice ->
               def maturity="prod"
               def location="local"
               //packaageTypeUserInput="generic"
-              String repokeyPrefix = team + "-" + packageTypeUserInput + "-" + maturity + "-"
-              String repokey=repokeyPrefix + location
+              String repokeyPrefix = team + "-" + packageTypeUserInput + "-" + maturity 
+              String repokey=repokeyPrefix + "-" + location
                 localRepository(/*"random-generic-prod-local"*/repokey) {
                     description "Public Description"
                     notes "Some internal notes"
@@ -43,7 +43,7 @@ services.each { servicename,localservice ->
                 }
               services.each { servicename1,remoteservice ->
                if(remoteservice.name!=localservice.name) {
-                       String repokey1=repokeyPrefix+remoteservice.name
+                       String repokey1=repokeyPrefix+ "-"+remoteservice.name
                        localRepository(/*"random-generic-prod-local"*/repokey1) {
                     	description "Public Description"
                     	notes "Some internal notes"
@@ -51,6 +51,13 @@ services.each { servicename,localservice ->
                 		}
              
             	}
+              }
+              string virtualRepoKey=repokeyPrefix
+              def remoteRepos = services.collect{key,serviceindividual -> serviceindividual.name}
+              virtualRepository(virtualRepoKey) {
+                description "virtual descirption"
+                notes "special notes"
+                repositories(remoteRepos)
               }
             }
 }
