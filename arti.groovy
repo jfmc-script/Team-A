@@ -46,7 +46,7 @@ services.each { servicename,localservice ->
               services.each { servicename1,remoteservice ->
                if(remoteservice.name!=localservice.name) {
                        String repokey1=repokeyPrefix+ "-"+remoteservice.name
-                       all_repo_keys.add(repokey1)
+                       all_repo_keys << repokey1
                        localRepository(/*"random-generic-prod-local"*/repokey1) {
                     	description "Public Description"
                     	notes "Some internal notes"
