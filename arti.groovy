@@ -30,7 +30,7 @@ def namecreator(String maturity, String location)
 //}
 def localservice=services["Art-2"]
 //for (localservice in service) {
-    artifactory(localservice)
+    artifactory(localservice.name)
             {
                 localRepository("random-generic-prod-local"/*namecreator("prod","local")*/) {
                     description "Public Description"
