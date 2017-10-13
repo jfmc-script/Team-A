@@ -32,11 +32,11 @@ services.each { servicename,localservice ->
     artifactory(localservice.name)
             {
               def maturity="prod"
-              def location="local"
+              //def location="local"
               String[] all_repo_keys = []
               //packaageTypeUserInput="generic"
               String repokeyPrefix = team + "-" + packageTypeUserInput + "-" + maturity 
-              String repokey=repokeyPrefix + "-" + location
+              String repokey=repokeyPrefix + "-" + "local"
               all_repo_keys.add(repokey)
                 localRepository(/*"random-generic-prod-local"*/repokey) {
                     description "Public Description"
