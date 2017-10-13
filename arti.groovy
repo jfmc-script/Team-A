@@ -28,8 +28,7 @@ def namecreator(String maturity, String location)
 //virtualrepos.add(virtname)
 //}
 //}
-def SERVICE_NAME = 'service-name'
-def service = services[SERVICE_NAME]
+
 for (localservice in service) {
     artifactory(localservice.id)
             {
