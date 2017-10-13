@@ -45,7 +45,7 @@ services.each { servicename,localservice ->
                // if(remoteservice.name!=localservice.name) {
                   artifactory(localservice.name)
                 	{
-                       String repokey1=repokeyPrefix+remoteservice.name
+                       String repokey1="asdf"//repokeyPrefix+remoteservice.name
                        localRepository(/*"random-generic-prod-local"*/repokey1) {
                     	description "Public Description"
                     	notes "Some internal notes"
