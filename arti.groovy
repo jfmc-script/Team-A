@@ -28,7 +28,7 @@ def localrepos = []
 //}
 //}
 //def localservice=services["Art-2"]
-for (localservice in services) {
+services.each { localservice ->
     artifactory(localservice.name)
             {
               def maturity="prod"
