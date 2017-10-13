@@ -27,8 +27,8 @@ def localrepos = []
 //virtualrepos.add(virtname)
 //}
 //}
-def localservice=services["Art-2"]
-//for (localservice in service) {
+//def localservice=services["Art-2"]
+for (localservice in services) {
     artifactory(localservice.name)
             {
               def maturity="prod"
@@ -41,4 +41,4 @@ def localservice=services["Art-2"]
                     packageType packageTypeUserInput // "maven" | "gradle" | "ivy" | "sbt" | "nuget" | "gems" | "npm" | "bower" | "debian" | "pypi" | "docker" | "vagrant" | "gitlfs" | "yum" | "generic"
                 }
             }
-//}
+}
