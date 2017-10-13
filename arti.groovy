@@ -17,12 +17,12 @@ localname = ""
 //virtname = ""
 //def virtualrepos = []
 def localrepos = []
-def namecreator(String maturity, String location)
+/* def namecreator(String maturity, String location)
 { //this function creates a list of all repos
     String localname = team + "-" + packageTypeUserInput + "-" + maturity + "-" + location
     return localname
     //localrepos.add (localname)
-}
+}*/
 //virtname = team + "-" + packageTypeUserInput + "-" + maturity
 //virtualrepos.add(virtname)
 //}
@@ -31,8 +31,8 @@ def localservice=services["Art-2"]
 //for (localservice in service) {
     artifactory(localservice.name)
             {
-              maturity="prod"
-              location="local"
+              def maturity="prod"
+              def location="local"
               //packaageTypeUserInput="generic"
               String repokey=team + "-" + packageTypeUserInput + "-" + maturity + "-" + location
                 localRepository(/*"random-generic-prod-local"*/repokey) {
