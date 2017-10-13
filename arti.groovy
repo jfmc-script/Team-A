@@ -3,13 +3,12 @@ team = userInput (
         description : "Repository Key",
         validations : (["cron"])
 )
-packageTypeUserInput = "generic"
-/* userInput (
+packageTypeUserInput = userInput (
 name : "Input name Package Type",
 type : "PACKAGE_TYPE",
 value : "",
 description : "please provide a value"
-) */
+)
 //construct a namespace
 //team-technology-maturity-location
 def maturitylist = ["dev", "prod"]
@@ -34,6 +33,7 @@ def localservice=services["Art-2"]
             {
               maturity="prod"
               location="local"
+              //packaageTypeUserInput="generic"
               String repokey=team + "-" + packageTypeUserInput + "-" + maturity + "-" + location
                 localRepository(/*"random-generic-prod-local"*/repokey) {
                     description "Public Description"
