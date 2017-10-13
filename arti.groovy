@@ -1,6 +1,6 @@
 artifactory("Art-1") {
-  localRepository("docker-local-a") {
-    packageType "docker"
+  localRepository("mvn-local-a") {
+    packageType "maven"
     description "My local Docker registry-vvvvvv"
   }
 }
