@@ -42,15 +42,15 @@ services.each { servicename,localservice ->
                     packageType packageTypeUserInput // "maven" | "gradle" | "ivy" | "sbt" | "nuget" | "gems" | "npm" | "bower" | "debian" | "pypi" | "docker" | "vagrant" | "gitlfs" | "yum" | "generic"
                 }
               services.each { servicename1,remoteservice ->
-               // if(remoteservice.name!=localservice.name) {
-                       String repokey1="asdf"//repokeyPrefix+remoteservice.name
+               if(remoteservice.name!=localservice.name) {
+                       String repokey1=repokeyPrefix+remoteservice.name
                        localRepository(/*"random-generic-prod-local"*/repokey1) {
                     	description "Public Description"
                     	notes "Some internal notes"
                     	packageType packageTypeUserInput // "maven" | "gradle" | "ivy" | "sbt" | "nuget" | "gems" | "npm" | "bower" | "debian" | "pypi" | "docker" | "vagrant" | "gitlfs" | "yum" | "generic"
                 		}
              
-            	//}
+            	}
               }
             }
 }
