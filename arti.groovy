@@ -37,7 +37,7 @@ services.each { servicename,localservice ->
               //packaageTypeUserInput="generic"
               String repokeyPrefix = team + "-" + packageTypeUserInput + "-" + maturity 
               String repokey=repokeyPrefix + "-" + location
-              all_repo_keys+=repokey
+              all_repo_keys.add(repokey)
                 localRepository(/*"random-generic-prod-local"*/repokey) {
                     description "Public Description"
                     notes "Some internal notes"
@@ -46,7 +46,7 @@ services.each { servicename,localservice ->
               services.each { servicename1,remoteservice ->
                if(remoteservice.name!=localservice.name) {
                        String repokey1=repokeyPrefix+ "-"+remoteservice.name
-                       all_repo_keys+=repokey1
+                       all_repo_keys.add(repokey1)
                        localRepository(/*"random-generic-prod-local"*/repokey1) {
                     	description "Public Description"
                     	notes "Some internal notes"
