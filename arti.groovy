@@ -42,7 +42,7 @@ services.each { servicename,localservice ->
                     packageType packageTypeUserInput // "maven" | "gradle" | "ivy" | "sbt" | "nuget" | "gems" | "npm" | "bower" | "debian" | "pypi" | "docker" | "vagrant" | "gitlfs" | "yum" | "generic"
                 }
               services.each { servicename1,remoteservice ->
-                if(remoteservice.name!=localservice.name) {
+               // if(remoteservice.name!=localservice.name) {
                   artifactory(localservice.name)
                 	{
                        String repokey1=repokeyPrefix+remoteservice.name
@@ -52,7 +52,7 @@ services.each { servicename,localservice ->
                     	packageType packageTypeUserInput // "maven" | "gradle" | "ivy" | "sbt" | "nuget" | "gems" | "npm" | "bower" | "debian" | "pypi" | "docker" | "vagrant" | "gitlfs" | "yum" | "generic"
                 		}
                 	}
-            	}
+            	//}
               }
             }
 }
