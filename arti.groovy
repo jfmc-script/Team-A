@@ -33,11 +33,11 @@ services.each { servicename,localservice ->
             {
               def maturity="prod"
               //def location="local"
-              String[] all_repo_keys = []
+              def all_repo_keys = []
               //packaageTypeUserInput="generic"
               String repokeyPrefix = team + "-" + packageTypeUserInput + "-" + maturity 
               String repokey=repokeyPrefix + "-" + "local"
-              all_repo_keys.add(repokey)
+              all_repo_keys << repokey
                 localRepository(/*"random-generic-prod-local"*/repokey) {
                     description "Public Description"
                     notes "Some internal notes"
