@@ -44,9 +44,19 @@ services.each { servicename,localservice ->
                     packageType packageTypeUserInput // "maven" | "gradle" | "ivy" | "sbt" | "nuget" | "gems" | "npm" | "bower" | "debian" | "pypi" | "docker" | "vagrant" | "gitlfs" | "yum" | "generic"
                 }
               services.each { servicename1,remoteservice ->
-               if(remoteservice.name!=localservice.name) {
-                       String repokey1=repokeyPrefix+ "-"+remoteservice.name
-                       all_repo_keys << repokey1
+               	if(remoteservice.name!=localservice.name) {
+                	String repokey1=repokeyPrefix+ "-"+remoteservice.name
+                	all_repo_keys << repokey1
+                  	string repoURL=remoteservice.url+repokey1
+                 	localRepository(repokey) {
+    					replication() {
+      						username remoteservice.credentials.userName
+      						password remoteservice.credentials.password
+      						url repoURL
+      						cronExp "0 0/9 14 * * ?"
+      						socketTimeoutMillis 15000
+    						}
+                    }
                        localRepository(/*"random-generic-prod-local"*/repokey1) {
                     	description "Public Description"
                     	notes "Some internal notes"
