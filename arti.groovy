@@ -38,7 +38,7 @@ services.each { servicename,localservice ->
               String repokeyPrefix = team + "-" + packageTypeUserInput + "-" + maturity 
               String repokey=repokeyPrefix + "-" + "local"
               all_repo_keys << repokey
-                localRepository(/*"random-generic-prod-local"*/repokey) {
+                localRepository(repokey) {
                     description "Public Description"
                     notes "Some internal notes"
                     packageType packageTypeUserInput // "maven" | "gradle" | "ivy" | "sbt" | "nuget" | "gems" | "npm" | "bower" | "debian" | "pypi" | "docker" | "vagrant" | "gitlfs" | "yum" | "generic"
