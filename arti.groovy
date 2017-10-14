@@ -49,7 +49,7 @@ services.each { servicename,localservice ->
                 	all_repo_keys << repokey1
                   	string repoURL=remoteservice.url+repokey1
                  	localRepository(repokey) {
-    					replication() {
+    					replication(remoteservice) {
       						username remoteservice.credentials.userName
       						password remoteservice.credentials.password
       						url repoURL
