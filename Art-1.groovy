@@ -1,4 +1,4 @@
-artifactory('Art1'){
+artifactory('Artifactory-1'){
 localRepository("my-repository") {
   description userInput (
     type : "STRING",
